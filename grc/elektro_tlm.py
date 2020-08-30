@@ -78,7 +78,7 @@ class elektro_tlm(gr.top_block, Qt.QWidget):
         self.sym_rate = sym_rate = 5000.0
         self.samp_rate = samp_rate = file_rate/4
         self.sps = sps = samp_rate/sym_rate
-        self.offset = offset = 1800
+        self.offset = offset = 0
 
         ##################################################
         # Blocks
@@ -314,8 +314,8 @@ class elektro_tlm(gr.top_block, Qt.QWidget):
         self.connect((self.blocks_pack_k_bits_bb_0, 0), (self.blocks_stream_to_vector_0, 0))
         self.connect((self.blocks_stream_to_vector_0, 0), (self.blocks_udp_sink_0, 0))
         self.connect((self.blocks_throttle_0, 0), (self.analog_agc_xx_0_0, 0))
-        self.connect((self.blocks_wavfile_source_0, 1), (self.blocks_float_to_complex_0, 1))
         self.connect((self.blocks_wavfile_source_0, 0), (self.blocks_float_to_complex_0, 0))
+        self.connect((self.blocks_wavfile_source_0, 1), (self.blocks_float_to_complex_0, 1))
         self.connect((self.dc_blocker_xx_0, 0), (self.blocks_multiply_xx_0, 1))
         self.connect((self.digital_binary_slicer_fb_0, 0), (self.blocks_pack_k_bits_bb_0, 0))
         self.connect((self.digital_binary_slicer_fb_0, 0), (self.qtgui_time_raster_sink_x_0, 0))
